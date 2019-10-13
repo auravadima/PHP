@@ -1,6 +1,6 @@
 # Тестовое задание для курса PHP
 
-### Неоходимое окружение Python 3
+### Неоходимое окружение: WPython 3
 
 ### Запуск первого задания  
 python createCsv.py  
@@ -8,5 +8,5 @@ python createCsv.py
 ### Запуск второго задания  
 python processCsv.py  
 
-### Запуск третьего задания
+### Запуск третьего задания  
 python factorial.py
