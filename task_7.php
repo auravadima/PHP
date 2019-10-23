@@ -13,8 +13,8 @@ while(true) {
 }
 
 function convertTo3And7($str) {
-  $result = str_replace('0', '3', $str);
-  $result = str_replace('1', '7', $result);
+  $result = str_replace('1', '3', $str);
+  $result = str_replace('0', '7', $result);
   return $result;
 }
 
