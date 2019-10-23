@@ -3,8 +3,8 @@
   $arr_with_string = $arr;
   $arr_with_string[2] = "text";
 
-  superFunc($arr);
-  superFunc($arr_with_string);
+  task_3($arr);
+  task_3($arr_with_string);
 
   function task_3($arr) {
     if(is_string($arr[2]) || is_string($arr[5]) || is_string($arr[7])) {
