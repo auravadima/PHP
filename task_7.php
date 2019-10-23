@@ -1,20 +1,43 @@
 <?php
 $iter = 2;
+$firstResult;
 while(true) {
   $binary = decbin($iter);
-  $str = convertTo3And7($binary);
+  $str = convertTo3And7($binary, true);
   if(checkFor3And7($str)) {
     if(checkForDivide($str)) {
-      echo $str;
+      $firstResult = $str;
       break;
     }
   }
   $iter += 1;
 }
 
-function convertTo3And7($str) {
-  $result = str_replace('1', '3', $str);
-  $result = str_replace('0', '7', $result);
+$iter = 2;
+$secondResult;
+while(true) {
+  $binary = decbin($iter);
+  $str = convertTo3And7($binary, false);
+  if(checkFor3And7($str)) {
+    if(checkForDivide($str)) {
+      $secondResult = $str;
+      break;
+    }
+  }
+  $iter += 1;
+}
+
+echo $firstResult < $secondResult ? $firstResult : $secondResult;
+
+function convertTo3And7($str, $rev) {
+  $result = $str;
+  if($rev) {
+    $result = str_replace('1', '3', $result);
+    $result = str_replace('0', '7', $result);
+  } else {
+    $result = str_replace('0', '3', $result);
+    $result = str_replace('1', '7', $result);
+  }
   return $result;
 }
 
