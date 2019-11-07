@@ -45,26 +45,26 @@ abstract class MysqlConnection {
 
     function select($columns, $table) {
         $stmt = $conn->prepare("select $columns from $table");
-        return $stmt->execcute(); 
+        return $stmt->execute(); 
     }
 
     function insert($columns, $table) {
         $stmt = $conn->prepare("insert $columns from $table");
-        return $stmt->execcute(); 
+        return $stmt->execute(); 
     }
 }
 
 class NewsDB extends DB {
     function all() {
         $stmt = $conn->prepare("select title, text, link as source from news");
-        return $stmt->execcute();
+        return $stmt->execute();
     }
 }
 
 class AnnounceDB extends DB {
     function all() {
         $stmt = $conn->prepare("select title, text, author as source from announces");
-        return $stmt->execcute();
+        return $stmt->execute();
     }
 }
 
