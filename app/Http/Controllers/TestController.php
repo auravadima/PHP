@@ -27,4 +27,9 @@ class TestController extends Controller
         $testOne = new TestOne();
         return $testOne->getTypes();
     }
+
+    public function setOne(Request $request) 
+    {
+        return "OK";
+    }
 }
