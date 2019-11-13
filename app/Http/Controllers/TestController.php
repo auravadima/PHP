@@ -10,6 +10,15 @@ class TestOne
     private $age;
     private $male;
 
+    public function getAll() 
+    {
+        return [
+            'name' => $this->name,
+            'age' => $this->age,
+            'male' => $this->male
+        ];
+    }
+
     public function getTypes() 
     {
         return [
@@ -17,6 +26,18 @@ class TestOne
             'age' => 'int',
             'male' => 'boolean'
         ];
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    public function setAge($age) {
+        $this->age = $age;
+    }
+
+    public function setGender($male) {
+        $this->male = $male;
     }
 }
 
@@ -30,6 +51,10 @@ class TestController extends Controller
 
     public function setOne(Request $request) 
     {
-        return "OK";
+        $testOne = new TestOne();
+        $testOne->setName($request->name);
+        $testOne->setAge($request->age);
+        $testOne->setGender($request->male);
+        return $testOne->getAll();
     }
 }
