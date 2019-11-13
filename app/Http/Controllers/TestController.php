@@ -46,7 +46,7 @@ class TestController extends Controller
     public function getOne() 
     {
         $testOne = new TestOne();
-        return $testOne->getTypes();
+        return json_encode($testOne->getTypes());
     }
 
     public function setOne(Request $request) 
@@ -55,6 +55,6 @@ class TestController extends Controller
         $testOne->setName($request->name);
         $testOne->setAge($request->age);
         $testOne->setGender($request->male);
-        return $testOne->getAll();
+        return json_encode($testOne->getAll());
     }
 }
