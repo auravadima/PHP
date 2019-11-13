@@ -1,4 +1,6 @@
 <?php
 
-Route::get("test/one", "TestController@getOne");
-Route::post("test/one", "TestController@setOne");
+Route::prefix('test')->group(function () {
+  Route::get("one", "TestController@getOne");
+  Route::post("one", "TestController@setOne");
+});
