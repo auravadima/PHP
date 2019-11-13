@@ -3,58 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class TestOne 
-{
-    private $name;
-    private $age;
-    private $male;
-
-    public function getAll() 
-    {
-        return [
-            'name' => $this->name,
-            'age' => $this->age,
-            'male' => $this->male
-        ];
-    }
-
-    public function getTypes() 
-    {
-        return [
-            'name' => 'string',
-            'age' => 'int',
-            'male' => 'boolean'
-        ];
-    }
-
-    public function setName($name) {
-        $this->name = $name;
-    }
-
-    public function setAge($age) {
-        $this->age = $age;
-    }
-
-    public function setGender($male) {
-        $this->male = $male;
-    }
-}
+use App\Services\TestBasicService;
 
 class TestController extends Controller
 {
+    private $testService;
+
+    public function __construct(TestBasicService $service) 
+    {
+        $this->testService = $service;
+    }
+
     public function getOne() 
     {
-        $testOne = new TestOne();
-        return json_encode($testOne->getTypes());
+        return $this->testService->getTestOneTypes();
     }
 
     public function setOne(Request $request) 
     {
-        $testOne = new TestOne();
-        $testOne->setName($request->name);
-        $testOne->setAge($request->age);
-        $testOne->setGender($request->male);
-        return json_encode($testOne->getAll());
+        return $this->testService->setTestOne
+        (
+            $request->name,
+            $request->age,
+            $request->male
+        );
     }
 }
