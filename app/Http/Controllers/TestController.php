@@ -3,25 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\TestBasicService;
+use App\Facades\TestBasicServiceFacade;
 
 class TestController extends Controller
 {
-    private $testService;
-
-    public function __construct(TestBasicService $service) 
+    public function getOne()
     {
-        $this->testService = $service;
+        return TestBasicServiceFacade::getTestOneTypes();
     }
 
-    public function getOne() 
+    public function setOne(Request $request)
     {
-        return $this->testService->getTestOneTypes();
-    }
-
-    public function setOne(Request $request) 
-    {
-        return $this->testService->setTestOne
+        return TestBasicServiceFacade::setTestOne
         (
             $request->name,
             $request->age,
