@@ -31,4 +31,12 @@ class Test extends Model
     public static function findById($id) {
         return Test::find($id);
     }
+
+    // Опишите в модели Test публичный статический метод,
+    // который принимает на вход параметр типа string и ищет в таблице tests строку с text,
+    // содержащую в себе переданный параметр типа string.
+    // Если такие строки не нашлись, метод должен вернуть null. Если нашлись, то коллекцию.
+    public static function findByText($text) {
+        return Test::where('text', 'like', '%' . $text . '%')->get();
+    }
 }
