@@ -16,7 +16,8 @@ class Test extends Model
     // который найдёт в таблице tests строку с максимальным id,
     // обновит значение text на ‘So what about pepito?’ и значение is_enabled на 1.
     // Метод должен возвращать модель со значениями до изменения.
-    public static function pepito() {
+    public static function pepito()
+    {
         $request = Test::whereRaw('id = (select max(`id`) from tests)');
         $before = $request->get();
         $request->update(['text' => 'So what about pepito?', 'is_enabled' => 1]);
@@ -28,7 +29,8 @@ class Test extends Model
     // и ищет в таблице tests строку с id равным этому параметру.
     // Если строка нашлась, метод должен вернуть модель.
     // Если строка не нашлась, метод должен вернуть null.
-    public static function findById($id) {
+    public static function findById($id)
+    {
         return Test::find($id);
     }
 
@@ -36,7 +38,8 @@ class Test extends Model
     // который принимает на вход параметр типа string и ищет в таблице tests строку с text,
     // содержащую в себе переданный параметр типа string.
     // Если такие строки не нашлись, метод должен вернуть null. Если нашлись, то коллекцию.
-    public static function findByText($text) {
+    public static function findByText($text)
+    {
         return Test::where('text', 'like', '%' . $text . '%')->get();
     }
 }
