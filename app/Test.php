@@ -22,4 +22,13 @@ class Test extends Model
         $request->update(['text' => 'So what about pepito?', 'is_enabled' => 1]);
         return $before;
     }
+
+    //Опишите в модели Test публичный статический метод,
+    // который принимает на вход параметр типа int
+    // и ищет в таблице tests строку с id равным этому параметру.
+    // Если строка нашлась, метод должен вернуть модель.
+    // Если строка не нашлась, метод должен вернуть null.
+    public static function findById($id) {
+        return Test::find($id)->get();
+    }
 }
