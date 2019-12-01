@@ -8,4 +8,7 @@ class Test extends Model
 {
     protected $fillable = ['text', 'is_enabled', 'created_at', 'updated_at'];
 
+    protected $casts = [
+        'is_enabled' => 'boolean',
+    ];
 }
