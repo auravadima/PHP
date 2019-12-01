@@ -31,4 +31,9 @@ class TestBasicService
     {
         return json_encode(Test::findById($id));
     }
+
+    public function getTestByText($text)
+    {
+        return json_encode(Test::findByText($text));
+    }
 }

@@ -26,4 +26,9 @@ class TestController extends Controller
     {
         return TestBasicServiceFacade::getTestById($request->id);
     }
+
+    public function getTestByText(Request $request)
+    {
+        return TestBasicServiceFacade::getTestByText($request->text);
+    }
 }
