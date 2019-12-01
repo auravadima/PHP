@@ -29,6 +29,6 @@ class Test extends Model
     // Если строка нашлась, метод должен вернуть модель.
     // Если строка не нашлась, метод должен вернуть null.
     public static function findById($id) {
-        return Test::where('id', $id)->get();
+        return Test::find($id);
     }
 }
