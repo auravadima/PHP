@@ -21,4 +21,9 @@ class TestController extends Controller
             $request->male
         );
     }
+
+    public function getTestById(Request $request)
+    {
+        return TestBasicServiceFacade::getTestById($request->id);
+    }
 }
