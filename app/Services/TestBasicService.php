@@ -43,4 +43,8 @@ class TestBasicService
         throw_if($result == null, MyTestException::class);
         return json_encode($result);
     }
+
+    public function getForMock(string $var) {
+        return $var;
+    }
 }
