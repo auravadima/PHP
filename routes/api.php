@@ -8,3 +8,5 @@ Route::group(['prefix' => 'test', 'middleware' => 'api'], function () {
 
     Route::get("{id}", "TestController@getTestById");
 });
+
+Route::get("test", "TestController@getTest");

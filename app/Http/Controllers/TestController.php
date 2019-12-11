@@ -31,4 +31,9 @@ class TestController extends Controller
     {
         return TestBasicServiceFacade::getTestByText($request->text);
     }
+
+    public function getTest(Request $request)
+    {
+        return response("my first test", 200);
+    }
 }
